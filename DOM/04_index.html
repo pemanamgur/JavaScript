@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model</title>
+</head>
+<body style="background-color: black; color : white">
+    <ul class="language-list">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+     //Since traversing it is not optimised using innerHTML
+       
+    function addLanguage(langName){
+      const li = document.querySelector(".language-list");
+    const list = document.createElement("li");
+    list.innerHTML = `${langName}`;
+    li.appendChild(list);
+  }
+  addLanguage("Java");
+  addLanguage("Python");
+  addLanguage("goLang");          
+
+
+
+  //This is an optimised method: using createTextNode
+ 
+ addOptiLanguage = (langName) =>{
+     const parent = document.querySelector(".language-list");
+     const createList = document.createElement("li");
+     createList.appendChild(document.createTextNode(`${langName}`));
+     parent.appendChild(createList);
+ }
+ 
+ addOptiLanguage("TypeScript");
+
+
+ //Edit
+
+ const thirdLang = document.querySelector("li:nth-child(3)");
+ const parent = document.querySelector(".language-list");
+ const newLi = document.createElement("li");
+ const text = newLi.appendChild(document.createTextNode("Pyt"));
+ thirdLang.replaceWith(newLi);
+
+ //Edit
+
+ const jsList = document.querySelector('li:first-child');
+ const TsList = document.querySelector('li:nth-child(5)');
+ jsList.outerHTML = "<li>TypeScript</li>";    //all element with content
+ TsList.innerHTML = "<li>JavaScript</li>";    //only content
+ 
+
+ //Remove
+  const lastLang = document.querySelector('li:last-child');
+  //parent.removeChild(lastLang);
+   //lastLang.remove();
+  
+
+  
+</script>
+</html>
