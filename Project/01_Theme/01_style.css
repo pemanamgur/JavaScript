@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 54px;
+    font-size: 3rem;
+    font-family: sans-serif;
+}
+
+nav a {
+    text-decoration: none;
+    background-color: rgb(247, 2, 2);
+    color : rgb(8, 8, 8);
+    border-radius: 13px;
+    
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+}
+#yellow{
+      background-color: rgb(219, 219, 104);
+      color : black;
+}
+#gray{
+      background-color: rgb(121, 121, 107);
+}
+#green{
+      background-color: rgb(37, 203, 54);
+}
+#red{
+      background-color: rgb(198, 23, 4);
+}
+ .color{
+    width : 25vw;
+    height : 25vh;
+    margin : 10px;
+    border-radius: 12px;
+    text-align: center;
+    padding-top: 22px;
+    font-size:  2rem;
+} 
