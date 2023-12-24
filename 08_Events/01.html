@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML EVENTS</title>
+</head>
+<body>
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: rgb(0, 0, 0);" href="https://www.google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //document.getElementById("river").onclick = function(){
+      //  alert("River.");
+    //}                                                                   //It has less features
+
+
+
+    //type , timeStamp , defaultPrevented
+    //target,relatedTarget,srcElement,currentTarget
+    //clientX , clientY , screenX , screenY
+    //altkey , ctrlkey , shiftkey ,keyCode
+    //document.getElementById("prayer").addEventListener('click',(e)=>{
+        //alert("Prayer.");                                               //addEventListener is modern features
+      //  console.log(e);
+    //},true)                          //false default => eventBubbling    true=> event capturing
+
+
+
+            
+  //  document.getElementById("images").addEventListener('click',function(e){
+  //          console.log("ul images is clicked.");
+  //  },false)
+//
+  //  document.getElementById("owl").addEventListener('click',function(e){
+  //          console.log("Owl is clicked.");
+  //          e.stopPropagation();                  //don't go up like bubble
+  //  },false)
+//
+//
+  //  document.getElementById('google').addEventListener('click',function(e){
+  //      e.preventDefault();
+  //      e.stopPropagation();
+  //      console.log("google clicked.")
+//
+  //  },false);
+
+
+  //document.querySelector("#images").addEventListener("click",function(e){
+      // console.log(e.target.parentNode);
+       //const removeThis = e.target.parentNode;
+    //   removeThis.remove();
+       
+      //  const child = e.target.parentNode;
+      // const parent = e.target.parentNode.parentNode;
+      // console.log(parent);
+      // parent.removeChild(child);
+
+  //},false)
+
+
+ /* document.querySelector("#images").addEventListener("click",function(e){
+
+    if(e.target.tagName === "IMG"){
+        console.log(e.target.tagName);
+        console.log(e.target.id);
+        const removeThis = e.target.parentNode;
+        removeThis.remove();
+    }
+},false)  */
+
+</script>
+</html>

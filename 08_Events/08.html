@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClientX & ClientY</title>
+  </head>
+  <body style="background-color: #212121; color: white">
+    <p>Move your mouse on the screen to see the coordinate</p>
+    <p id="log_disp">hello</p>
+  </body>
+  <script>
+    const log_disp = document.querySelector("#log_disp");
+
+    function check(e) {
+        console.log(e);
+      log_disp.innerHTML = `ClientX : ${e.clientX} , ClientY : ${e.clientY}`;
+      log_disp.innerHTML += `screenX : ${e.screenX} , screenY : ${e.screenY}`;
+    }
+
+    document.addEventListener("mousemove", check);
+  </script>
+</html>

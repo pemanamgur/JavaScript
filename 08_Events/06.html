@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>relatedTarget</title>
+    <style>
+        #outer {
+            width: 250px;
+            height: 125px;
+            display: flex;
+          }
+          
+          #red {
+            flex-grow: 1;
+            background: red;
+          }
+          
+          #blue {
+            flex-grow: 1;
+            background: blue;
+          }
+          
+          #log {
+            max-height: 120px;
+            overflow-y: scroll;
+          }
+          
+    </style>
+</head>
+<body id="body">
+    
+        <div id="outer">
+          <div id="red"></div>
+          <div id="blue"></div>
+        </div>
+        <p id="log"></p>
+
+      
+
+</body>
+
+<script>
+
+const mouseoutLog = document.querySelector("#log")
+const red = document.getElementById("red");
+const blue = document.getElementById("blue");
+
+red.addEventListener('mouseover',handleOver,false);
+red.addEventListener('mouseout',handleOut,false);
+blue.addEventListener('mouseout',handleOut,false);
+blue.addEventListener('mouseover',handleOver,false);
+
+
+function handleOut(e){
+    //console.log(e);
+//console.log(e.relatedTarget);
+let related = e.relatedTarget ? e.relatedTarget.id : "unknown";
+console.log(related);
+mouseoutLog.innerText = `\n from ${e.target.id} from ${related} ${mouseoutLog.innerText}`;
+}
+
+function handleOver(e){
+  //  console.log(e);
+    //console.log(e.relatedTarget);
+    let related = e.relatedTarget ? e.relatedTarget.id : "unknown";
+console.log(related);
+mouseoutLog.innerText = `\n from ${e.target.id} from ${related} ${mouseoutLog.innerText}`;
+}
+</script>
+
+</html>

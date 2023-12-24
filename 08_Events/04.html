@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DefaultPrevented Events</title>
+</head>
+<body>
+      
+    <p><a target="_blank" id="link1" href="https://www.google.com">click link1</a></p>
+    <p><a target="_blank" id="link2" href="https://www.facebook.com">click link2</a></p>
+    <p id="log"></p>
+</body>
+<script>
+  
+
+    
+    function goRun(e){
+        const message = document.querySelector("#log");
+        if(e.target.tagName === 'A'){
+            message.innerHTML = e.defaultPrevented ? `Sorry but you can't visit this link ${message.innerHTML}`: `Visiting link...${message.innerHTML}`;
+        }
+    }
+    
+    
+    
+    const link1 = document.getElementById("link1");
+    const link2 = document.getElementById("link2");
+    //console.log(link2);
+
+
+    link1.addEventListener('click',function(e){
+           e.preventDefault();
+    },false);
+
+    document.addEventListener('click',goRun,false);
+    
+</script>
+</html>

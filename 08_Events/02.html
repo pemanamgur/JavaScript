@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Event</title>
+</head>
+<body>
+    <p>Press any key or click on mouse to get and event type. </p>
+    <h1 id="disp"></h1>
+</body>
+
+<script>
+    function eventInfo(e){
+      console.log(e.type);
+        const dispArea =  document.querySelector('#disp');    
+          
+      dispArea.innerText = `${e.type} \n `;
+    }
+
+    //Mouse Events :
+    document.addEventListener("click",eventInfo,false);
+    document.addEventListener("mousedown",eventInfo,false);
+    document.addEventListener("mouseup",eventInfo,false);
+  
+    //Keyboard Events:
+    document.addEventListener("keyup",eventInfo,false);
+    document.addEventListener("keydown",eventInfo,false);
+    document.addEventListener("keypress",eventInfo,false);
+</script>
+
+
+</html>

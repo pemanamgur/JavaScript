@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>altkey example</title>
+</head>
+<body style="background-color: black; color : white;" onkeydown="showChar(event)">
+   <p>
+        Press any character key, with or without holding down the ALT key.</br>
+        You can also use the shift key with the alt key.
+    </p>
+
+</body>
+<script>
+//This code are especially used to know whether the following keys has been pressed or not:
+// E.g  altKey , shiftLeft , key , keyCode , ctrlKey ,
+   function showChar(e){
+    console.log(e);
+    console.log(e.charCode);
+    console.log(e.altKey);                   //gives true or false;
+   }
+
+</script>
+</html>
