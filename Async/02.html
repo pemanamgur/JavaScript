@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <h1>Hello World</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+  </body>
+  <script>
+
+    let stopRef;
+    const textChange = () => {
+        
+        function start(str){
+            const nimaH1 = document.querySelector("h1");
+            nimaH1.innerHTML = `Nima Khate. ${str}`;
+         console.log("print");
+        }
+        if(!stopRef){   // if its not set or null or falsy or undefined it is true : you dont start with new interval or already running
+            stopRef =  setInterval(start, 3000,"Pema");
+        }
+    };
+
+    const nimaBtn = document.querySelector("#start");
+    nimaBtn.addEventListener('click',textChange);
+
+    const stopBtn = document.querySelector("#stop");
+    stopBtn.addEventListener("click", function () {
+      clearInterval(stopRef);
+      stopRef = null;
+      console.log("stopped");
+    });
+    
+  </script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+
+    //setTimeout(function(){
+      //  alert("Hello");
+    //},2000);
+
+
+    //const hello = ()=>{
+      //  console.log("Hello World...");
+    //}
+    //setTimeout(hello,2000);
+    
+    //function hello(){
+      //  console.log("Hello");
+    //}
+    //setTimeout(hello,2000);
+
+
+   //setInterval(()=>{
+   // console.log("Hello")
+   //},2000);
+
+
+
+
+    //const hello = ()=>{
+      //  console.log("Hello World..");
+    //}
+    //setInterval(hello,2000);
+
+    //function hello(){
+      //  console.log("Hello");
+   // }
+    //setInterval(hello,2000);
+
+   //setInterval(()=>{
+       //const h1 =  document.querySelector("h1");
+     //  h1.innerHTML = "Pema is back to coding.";
+     //},2000);
+     
+     
+     const changeText = function(){
+       const h1 =  document.querySelector("h1");
+       h1.innerHTML = "Pema is back to coding.";  
+   }
+     const changeMe =   setTimeout(changeText,2000); 
+     //clearTimeout(changeMe);        //Not a good concept because then why are we setting Time;
+
+    const btn =  document.querySelector("#stop");
+     btn.addEventListener("click",function(){
+        clearTimeout(changeMe);
+        console.log("stopped.");
+     })
+
+
+</script>
+</html>
