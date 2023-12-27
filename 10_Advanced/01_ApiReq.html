@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    
+    Value	State	                          Description
+    0	    UNSENT	               Client has been created. open() not called yet.
+    1	    OPENED	               open() has been called.
+    2	    HEADERS_RECEIVED	   send() has been called, and headers and status are available.
+    3	    LOADING	Downloading;   responseText holds partial data.
+    4	    DONE	               The operation  is complete.
+
+    <h1><img src="" alt="" >
+    <p></p>
+    </h1>
+</body>
+<script>
+           const h1 = document.querySelector("h1");
+           const para = document.querySelector("p");
+           const requestURL = 'https://api.github.com/users/pemanamgur';
+           const xhr = new XMLHttpRequest();
+           xhr.open("GET",requestURL);
+           xhr.onreadystatechange = function(){
+               console.log(xhr.readyState);
+               if(xhr.readyState === 4){
+                   console.log(this.responseText);
+                   const data = JSON.parse(this.responseText);
+                   //console.log( typeof data);
+                   //console.log(data);
+                  // console.log(data.login);  
+                   //console.log(data.followers);  
+                   //console.log(h1.children)
+                   h1.children[0].src = `${data.avatar_url}`;
+                   //console.log(h1.children[0].getAttribute("src"));
+                   //const paraText = document.createTextNode("follower is :" +  data.followers);
+                   //para.appendChild(paraText);
+               }
+           }
+           xhr.send();
+
+</script>
+</html>
