@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyBoard</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .color table{
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+        .color th , .color td{
+            border: 1px solid cyan;
+            background-color: gray;
+
+        }
+        .color th {
+            background-color: #f78282; /* Add background color for header */
+        }
+    </style>
+</head>
+<body style="background-color: #212121; color:white;">
+    <div class="project">
+        <div id="insert">
+            <div class="key">Press key and watch the magic.</div>
+        </div>
+    </div>
+</body>
+<script>
+
+  const project = document.querySelector(".project");
+  const insert = document.querySelector("#insert");
+  const key = document.querySelector(".key");
+  
+  document.body.addEventListener('keyup',function(e){
+    console.log(e);
+    /*
+             let li = document.createElement("li");
+             let text = document.createTextNode(`${e.key} and its keyCode = ${e.keyCode} \n The time consumed i.e. timeStamp = ${e.timeStamp}milliseconds`);
+             li.appendChild(text);
+             key.appendChild(li);
+             */
+
+             insert.innerHTML = `
+                            <div class="color">
+                               <table>
+                                <tr>
+                                    <th>Key</th>
+                                    <th>KeyCode</th>
+                                    <th>Code</th>
+                                </tr>
+                                <tr>
+                                    <td>${e.key === " " ? "space" : e.key}</td>
+                                    <td>${e.keyCode}</td>
+                                    <td>${e.code}</td>
+                                </tr>
+                               </table>
+                            </color>;
+             `
+  });
+</script>
+</html>
