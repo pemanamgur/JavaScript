@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+         
+        #quiz-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #3a9dd6;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 8px rgb(63, 62, 62);
+        }
+        
+        h2 {
+            color: #e9ed1bc5;
+        }
+        
+        #question-container {
+            text-align: center;
+            margin-bottom: 20px;
+            color : rgb(15, 255, 127);
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+    
+        .option {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .option:hover {
+            background-color: #21ed16;
+            color : black;
+            font-size : 0.9rem;
+        }
+        
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color : rgba(255, 185, 20, 0.999);
+        }
+    </style>
+</head>
+<body>
+
+<div id="quiz-container">
+    <h2>Quiz Time!</h2>
+    <div id="question-container"></div>
+    <div class="options" id="options-container"></div>
+    <button onclick="nextQuestion()">Next</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    
+    const questions = [
+        {
+            question: "What is the capital of France?",
+            options: ["Paris", "Berlin", "Rome", "Madrid"],
+            correctAnswer: "Paris"
+        },
+        {
+            question: "Which planet is known as the Red Planet?",
+            options: ["Earth", "Mars", "Jupiter", "Saturn"],
+            correctAnswer: "Mars"
+        },
+        {
+            question: "What is the largest mammal?",
+            options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+            correctAnswer: "Blue Whale"
+        }
+    ];
+
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const questionContainer = document.getElementById("question-container");
+        const optionsContainer = document.getElementById("options-container");
+        const resultContainer = document.getElementById("result");
+
+        questionContainer.innerHTML = questions[currentQuestion].question;
+
+        optionsContainer.innerHTML = "";
+        questions[currentQuestion].options.forEach((option) => {
+            const button = document.createElement("button");
+            button.innerText = option;
+            button.classList.add("option");
+            button.onclick = () => checkAnswer(option);
+            optionsContainer.appendChild(button);
+        });
+
+        resultContainer.innerText = `Score: ${score}/${currentQuestion}`;
+    }
+
+
+    function checkAnswer(selectedAnswer) {
+        const correctAnswer = questions[currentQuestion].correctAnswer;
+        if (selectedAnswer === correctAnswer) {
+            score++;
+        }
+
+        currentQuestion++;
+
+        if (currentQuestion < questions.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        const resultContainer = document.getElementById("result");
+        resultContainer.innerText = `Quiz completed! Your final score is ${score}/${questions.length}`;
+    }
+
+    function nextQuestion() {
+        if (currentQuestion < questions.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    // Initial load
+    loadQuestion(); 
+</script>
+
+</body>
+</html>
